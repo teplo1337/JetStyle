@@ -3,7 +3,7 @@
 let languages = [
   { alphabet: 'abcdefghijklmnopqrstuvwxyz1234567890', lang: 'en'},
   { alphabet: 'абвгдеёжзийклмнопрстуфхцчшщъыьэюя1234567890', lang: 'ru'},
-  { alphabet: 'любой другой язык', lang: 'ra'}
+  { alphabet: 'любой другой язык', lang: 'xx'}
 ];
 
 /* назначения клавиш */
@@ -30,7 +30,7 @@ let setButton = (input, element, key, parent) => {
       if(setLang === languages.length - 1) {
         parent.querySelectorAll('.keyboard-bar-lang')[0].innerHTML = languages[0].lang; 
       } else {
-        parent.querySelectorAll('.keyboard-bar-lang').innerHTML = languages[setLang + 1].lang;
+        parent.querySelectorAll('.keyboard-bar-lang')[0].innerHTML = languages[setLang + 1].lang;
       }
       
   console.log(parent.dataset.lang)
