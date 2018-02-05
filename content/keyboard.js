@@ -16,7 +16,6 @@ let setButton = (input, element, key, parent) => {
 
     } else if (key === 'lang') { 
 
-      console.log(element.dataset.lang)
       if(!element.dataset.lang) {        
         element.dataset.lang = 0;
       }
@@ -24,7 +23,6 @@ let setButton = (input, element, key, parent) => {
       element.dataset.lang = ++setLang;
       parent.removeChild(parent.lastChild);
 
-      console.log(element.dataset.lang)
       if (!languages[setLang]) {
         element.dataset.lang = 0;
         setLang = 0;
@@ -36,7 +34,6 @@ let setButton = (input, element, key, parent) => {
         parent.querySelectorAll('.keyboard-bar-lang')[0].innerHTML = languages[setLang + 1].lang;
       }
       
-  console.log(element.dataset.lang)
       generateKeyboard (input, parent, setLang);
     } else if (key === 'space') {
       input.value += ' ';
