@@ -17,6 +17,9 @@ let setButton = (input, element, key, parent) => {
     } else if (key === 'lang') { 
 
       console.log(element.dataset.lang)
+      if(!element.dataset.lang) {        
+        element.dataset.lang = 0;
+      }
       let setLang = Number(element.dataset.lang);
       element.dataset.lang = ++setLang;
       parent.removeChild(parent.lastChild);
@@ -65,7 +68,6 @@ let generateKeyboard = (element, parent, id) => {
 
 document.querySelectorAll('.input-keyboard').forEach((element) => {
   const parent = element.parentNode;
-  element.dataset.lang = 0;
   const bar = document.createElement('div');
   const backspace = document.createElement('button');
   
