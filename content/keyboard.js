@@ -6,10 +6,6 @@ let languages = [
   { alphabet: 'любой другой язык', lang: 'ra'}
 ];
 
-/* выбран глобальный язык */
-
-let setLang = 0;
-
 /* назначения клавиш */
 
 let setButton = (input, element, key, parent) => {
@@ -17,21 +13,27 @@ let setButton = (input, element, key, parent) => {
   element.addEventListener('click', () => {
     if (key === 'backspace') {
       input.value = input.value.substring(0, input.value.length -1)
+
     } else if (key === 'lang') { 
+
+      console.log(parent.dataset.lang)
+      let setLang = Number(parent.dataset.lang);
+      parent.dataset.lang = ++setLang;
       parent.removeChild(parent.lastChild);
-      if (!languages[++setLang]) {
+
+      console.log(parent.dataset.lang)
+      if (!languages[setLang]) {
+        parent.dataset.lang = 0;
         setLang = 0;
       }    
+
       if(setLang === languages.length - 1) {
-        document.querySelectorAll('.keyboard-bar-lang').forEach((keyboardBarLang) => {
-          keyboardBarLang.innerHTML = languages[0].lang; 
-        });
+        parent.querySelectorAll('.keyboard-bar-lang')[0].innerHTML = languages[0].lang; 
       } else {
-        document.querySelectorAll('.keyboard-bar-lang').forEach((keyboardBarLang) => {
-          keyboardBarLang.innerHTML = languages[setLang + 1].lang; 
-        });
+        parent.querySelectorAll('.keyboard-bar-lang').innerHTML = languages[setLang + 1].lang;
       }
       
+  console.log(parent.dataset.lang)
       generateKeyboard (input, parent, setLang);
     } else if (key === 'space') {
       input.value += ' ';
@@ -63,8 +65,10 @@ let generateKeyboard = (element, parent, id) => {
 
 document.querySelectorAll('.input-keyboard').forEach((element) => {
   const parent = element.parentNode;
+  parent.dataset.lang = 0;
   const bar = document.createElement('div');
   const backspace = document.createElement('button');
+  
   backspace.innerHTML = '⌫';
   setButton(element, backspace, 'backspace');
 
