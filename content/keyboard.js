@@ -10,7 +10,7 @@ let languages = [
 
 let setLang = 0;
 
-/* незначения клавиш */
+/* назначения клавиш */
 
 let setButton = (input, element, key, parent) => {
   element.setAttribute('type', 'button');
@@ -23,12 +23,12 @@ let setButton = (input, element, key, parent) => {
         setLang = 0;
       }    
       if(setLang === languages.length - 1) {
-        document.querySelectorAll('.keyboard-bar-lang').forEach((ketboardBarLang) => {
-          ketboardBarLang.innerHTML = languages[0].lang; 
+        document.querySelectorAll('.keyboard-bar-lang').forEach((keyboardBarLang) => {
+          keyboardBarLang.innerHTML = languages[0].lang; 
         });
       } else {
-        document.querySelectorAll('.keyboard-bar-lang').forEach((ketboardBarLang) => {
-          ketboardBarLang.innerHTML = languages[setLang + 1].lang; 
+        document.querySelectorAll('.keyboard-bar-lang').forEach((keyboardBarLang) => {
+          keyboardBarLang.innerHTML = languages[setLang + 1].lang; 
         });
       }
       
@@ -46,14 +46,13 @@ let setButton = (input, element, key, parent) => {
 
 let generateKeyboard = (element, parent, id) => {
   const alphabet = languages[id].alphabet;
-  const alphabetArray = alphabet.split('');
   const keys = document.createElement('div');        
   keys.className = 'keyboard-keys';
     
-  for (let i = 0; i < alphabetArray.length; i++) {
+  for (let i = 0; i < alphabet.length; i++) {
     const button = document.createElement('button');
-    button.innerHTML = alphabetArray[i];      
-    setButton(element, button, alphabetArray[i], null);
+    button.innerHTML = alphabet[i];      
+    setButton(element, button, alphabet[i], null);
     keys.appendChild(button);
   }
   parent.appendChild(keys);
