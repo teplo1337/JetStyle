@@ -16,14 +16,14 @@ let setButton = (input, element, key, parent) => {
 
     } else if (key === 'lang') { 
 
-      console.log(parent.dataset.lang)
-      let setLang = Number(parent.dataset.lang);
-      parent.dataset.lang = ++setLang;
+      console.log(element.dataset.lang)
+      let setLang = Number(element.dataset.lang);
+      element.dataset.lang = ++setLang;
       parent.removeChild(parent.lastChild);
 
-      console.log(parent.dataset.lang)
+      console.log(element.dataset.lang)
       if (!languages[setLang]) {
-        parent.dataset.lang = 0;
+        element.dataset.lang = 0;
         setLang = 0;
       }    
 
@@ -33,7 +33,7 @@ let setButton = (input, element, key, parent) => {
         parent.querySelectorAll('.keyboard-bar-lang')[0].innerHTML = languages[setLang + 1].lang;
       }
       
-  console.log(parent.dataset.lang)
+  console.log(element.dataset.lang)
       generateKeyboard (input, parent, setLang);
     } else if (key === 'space') {
       input.value += ' ';
@@ -65,7 +65,7 @@ let generateKeyboard = (element, parent, id) => {
 
 document.querySelectorAll('.input-keyboard').forEach((element) => {
   const parent = element.parentNode;
-  parent.dataset.lang = 0;
+  element.dataset.lang = 0;
   const bar = document.createElement('div');
   const backspace = document.createElement('button');
   
