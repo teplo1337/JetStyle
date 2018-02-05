@@ -1,0 +1,22 @@
+body {
+  background-color: black;
+}
+.content {
+  height: 100vh; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+}
+.input-keyboard {
+  background-color: black;
+  border: 0px;
+  border-bottom: 1px solid white;
+  color: white;
+  text-align: center;
+}
+.input-keyboard:focus {
+  outline: none;
+}
+label {
+  color: white;
+}
