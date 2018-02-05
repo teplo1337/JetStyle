@@ -1,10 +1,16 @@
+/* языки */
+
 let languages = [
   { alphabet: 'abcdefghijklmnopqrstuvwxyz1234567890', lang: 'en'},
   { alphabet: 'абвгдеёжзийклмнопрстуфхцчшщъыьэюя1234567890', lang: 'ru'},
   { alphabet: 'любой другой язык', lang: 'ra'}
 ];
 
+/* выбран глобальный язык */
+
 let setLang = 0;
+
+/* незначения клавиш */
 
 let setButton = (input, element, key, parent) => {
   element.setAttribute('type', 'button');
@@ -36,6 +42,8 @@ let setButton = (input, element, key, parent) => {
   });
 }
 
+/* добавляем нижнию часть клавиатуры */
+
 let generateKeyboard = (element, parent, id) => {
   const alphabet = languages[id].alphabet;
   const alphabetArray = alphabet.split('');
@@ -50,6 +58,9 @@ let generateKeyboard = (element, parent, id) => {
   }
   parent.appendChild(keys);
 }
+
+
+/* добавляем всем элементам с классом .input-keyboard клавиатуры на странице */
 
 document.querySelectorAll('.input-keyboard').forEach((element) => {
   const parent = element.parentNode;

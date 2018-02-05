@@ -9,9 +9,10 @@ body {
   flex-direction: row;
 }
 
-#form1 {
+form {
   display: flex;
   flex-direction: column;
+  max-width: 600px;
 }
 
 .input-keyboard {
