@@ -1,3 +1,5 @@
+'use strict'
+
 /* языки */
 
 let languages = [
@@ -12,13 +14,14 @@ let setButton = (input, element, key, parent) => {
   element.setAttribute('type', 'button');
   element.addEventListener('click', () => {
     if (key === 'backspace') {
-      input.value = input.value.substring(0, input.value.length -1)
+      input.value = input.value.substring(0, input.value.length -1);
 
     } else if (key === 'lang') { 
 
       if(!element.dataset.lang) {        
         element.dataset.lang = 0;
       }
+
       let setLang = Number(element.dataset.lang);
       element.dataset.lang = ++setLang;
       parent.removeChild(parent.lastChild);
